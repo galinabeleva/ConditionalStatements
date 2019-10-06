@@ -1,0 +1,34 @@
+using System;
+
+namespace PipesInPool
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int poolVolume = int.Parse(Console.ReadLine());
+            int debitFirstPipe = int.Parse(Console.ReadLine());
+            int debitSecondPipe = int.Parse(Console.ReadLine());
+            double hoursMissing = double.Parse(Console.ReadLine());
+
+            double volumeFirstPipe = debitFirstPipe * hoursMissing;
+            double volumeSecondPipe = debitSecondPipe * hoursMissing;
+            double totalVolume = volumeFirstPipe + volumeSecondPipe;
+            double percentFirstPipe = volumeFirstPipe / totalVolume * 100;
+            double percentSecondPipe = volumeSecondPipe / totalVolume * 100;
+            double percentFull = totalVolume / poolVolume * 100;
+            double litersOverflowing = totalVolume - poolVolume;
+
+            if (totalVolume <= poolVolume)
+            {
+                Console.WriteLine($"The pool is {percentFull:f2}% full. " +
+                    $"Pipe 1: {percentFirstPipe:f2}%. Pipe 2: {percentSecondPipe:f2}%.");
+            }
+            else if (totalVolume > poolVolume)
+            {
+                Console.WriteLine($"For {hoursMissing:f2} hours the pool overflows with {litersOverflowing:f2} liters.");
+            }
+
+        }
+    }
+}
