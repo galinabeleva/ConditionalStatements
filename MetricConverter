@@ -1,0 +1,50 @@
+using System;
+
+namespace MetricConverter
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double lenght = double.Parse(Console.ReadLine());
+            string input = Console.ReadLine();
+            string output = Console.ReadLine();
+            double newLenght = 0.0;
+
+            if (input == "m")
+            {
+                if (output == "mm")
+                {
+                    newLenght = lenght * 1000;
+                }
+                else if (output == "cm")
+                {
+                    newLenght = lenght * 100;
+                }
+            }
+            else if (input == "mm")
+            {
+                if (output == "m")
+                {
+                    newLenght = lenght / 1000;
+                }
+                else if (output == "cm")
+                {
+                    newLenght = lenght / 10;
+                }
+            }
+            else if (input == "cm")
+            {
+                if (output == "mm")
+                {
+                    newLenght = lenght * 10;
+                }
+                else if (output == "m")
+                {
+                    newLenght = lenght / 100;
+                }
+            }
+            Console.WriteLine($"{newLenght:f3}");
+        }
+    }
+}
