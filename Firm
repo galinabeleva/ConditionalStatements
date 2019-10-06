@@ -1,0 +1,29 @@
+using System;
+
+namespace Firm
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int hoursNeeded = int.Parse(Console.ReadLine());
+            int daysForProject = int.Parse(Console.ReadLine());
+            int numberOfEmployees = int.Parse(Console.ReadLine());
+
+            double workingHours = daysForProject * 0.9 * 8;
+            double addHours = numberOfEmployees * daysForProject * 2;
+            double totalHours = Math.Floor(workingHours + addHours);
+            double hoursLeft = Math.Abs(totalHours - hoursNeeded);
+
+            if (totalHours >= hoursNeeded)
+            {
+                Console.WriteLine($"Yes!{hoursLeft} hours left.");
+            }
+            else
+            {
+                Console.WriteLine($"Not enough time!{hoursLeft} hours needed.");
+            }
+
+        }
+    }
+}
