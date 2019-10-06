@@ -1,0 +1,37 @@
+using System;
+
+namespace AreaOfFigures
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string figureType = Console.ReadLine();
+            double area = 0.0;
+
+            if (figureType == "square")
+            {
+                double side = double.Parse(Console.ReadLine());
+                area = Math.Pow(side, 2);
+            }
+            else if (figureType == "rectangle")
+            {
+                double sideA = double.Parse(Console.ReadLine());
+                double sideB = double.Parse(Console.ReadLine());
+                area = sideA * sideB;
+            }
+            else if (figureType == "circle")
+            {
+                double radius = double.Parse(Console.ReadLine());
+                area = Math.Pow(radius, 2) * Math.PI;
+            }
+            else if (figureType == "triangle")
+            {
+                double side = double.Parse(Console.ReadLine());
+                double height = double.Parse(Console.ReadLine());
+                area = side * height / 2;
+            }
+            Console.WriteLine($"{area:f3}");
+        }
+    }
+}
