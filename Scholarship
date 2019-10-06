@@ -1,0 +1,40 @@
+using System;
+
+namespace Scholarship
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double income = double.Parse(Console.ReadLine());
+            double grades = double.Parse(Console.ReadLine());
+            double minimumWage = double.Parse(Console.ReadLine());
+            double socialStipend = minimumWage * 0.35;
+            double excellentStipend = grades * 25;
+
+            if (grades <= 4.50 || grades > 4.50 && grades < 5.50 && income >= minimumWage)
+            {
+                Console.WriteLine("You cannot get a scholarship!");
+            }
+            else if (grades > 4.50 && grades < 5.50 && income < minimumWage)
+            {
+                Console.WriteLine($"You get a Social scholarship {Math.Floor(socialStipend)} BGN");
+            }
+            else if (grades >= 5.50 && income >= minimumWage)
+            {
+                Console.WriteLine($"You get a scholarship for excellent results {Math.Floor(excellentStipend)} BGN");
+            }
+            else if (grades >= 5.50 && income < minimumWage)
+            {
+                if (socialStipend > excellentStipend)
+                {
+                    Console.WriteLine($"You get a Social scholarship {Math.Floor(socialStipend)} BGN");
+                }
+                else
+                {
+                    Console.WriteLine($"You get a scholarship for excellent results {Math.Floor(excellentStipend)} BGN");
+                }
+            }
+        }
+    }
+}
