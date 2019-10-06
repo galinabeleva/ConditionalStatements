@@ -1,0 +1,42 @@
+using System;
+
+namespace TimePlus15Minutes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int hours = int.Parse(Console.ReadLine());
+            int minutes = int.Parse(Console.ReadLine());
+
+            int newMinutes = minutes + 15;
+            int newHours = 0;
+
+            if (newMinutes >= 60)
+            {
+                if (hours == 23)
+                {
+                    newHours = 0;
+                    newMinutes -= 60;
+                }
+                else
+                {
+                    newHours = hours + 1;
+                    newMinutes -= 60;
+                }
+            }
+            else
+            {
+                newHours = hours;
+            }
+            if (newMinutes < 10)
+            {
+                Console.WriteLine($"{newHours}:{newMinutes:d2}");
+            }
+            else
+            {
+                Console.WriteLine($"{newHours}:{newMinutes}");
+            }
+        }
+    }
+}
